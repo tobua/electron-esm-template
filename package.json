@@ -1,0 +1,23 @@
+{
+  "name": "electron-esm-template",
+  "description": "Minimal ESM Electron template with Playwright for testing.",
+  "version": "1.0.0",
+  "repository": "https://github.com/tobua/electron-esm-template",
+  "license": "CC0-1.0",
+  "author": "Matthias Giger",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.41.0",
+    "electron": "^28.1.4",
+    "playwright": "^1.41.0"
+  },
+  "main": "main.js",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}

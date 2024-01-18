@@ -1,0 +1,17 @@
+name: push
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 🛠️ Build
+        run: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install
+      - name: 🚧 Install Chromium for Playwright
+        run: npx playwright install-deps chromium
+      - name: 🧪 Test (set window resolution)
+        run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- npm test
