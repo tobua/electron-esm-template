@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: 🐰 Install Bun
+        uses: oven-sh/setup-bun@v1
+      - name: 🐇 Install Dependencies using Bun
+        run: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 bun install
       - name: 🛠️ Build
-        run: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install
+        run: bun run build
       - name: 🚧 Install Chromium for Playwright
-        run: npx playwright install-deps chromium
+        run: bunx playwright install-deps chromium
       - name: 🧪 Test (set window resolution)
-        run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- npm test
+        run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- bun run test
