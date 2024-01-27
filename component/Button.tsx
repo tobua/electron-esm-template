@@ -1,15 +1,12 @@
 const buttonStyles = {
-  background: 'blue',
+  background: '#FF9E00',
   color: 'white',
   padding: 10,
   borderRadius: 5,
   border: 'none',
+  cursor: 'pointer',
 }
 
-export function Button({ children }: { children: string }) {
-  return (
-    <button type="button" style={buttonStyles}>
-      {children}
-    </button>
-  )
+export function Button(props: JSX.IntrinsicElements['button']) {
+  return <button type="button" style={buttonStyles} {...props} />
 }

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/tobua/electron-esm-template/raw/main/screenshot.png" alt="ESM Template Screenshot" height="300">
+</p>
+
 # electron-esm-template
 
 A minimal ESM (ES Modules) template for Electron with Playwright configured for testing. ESM support in Electron requires at least version 28.

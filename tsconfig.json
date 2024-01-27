@@ -10,5 +10,5 @@
     "resolveJsonModule": true,
     "moduleResolution": "bundler"
   },
-  "include": ["src"]
+  "include": ["global.d.ts", "index.tsx"]
 }
