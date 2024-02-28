@@ -1,6 +1,6 @@
 export {} // This is somehow needed.
 
-// Implemented in electron/bridge.js
+// Implemented in bridge.cjs
 declare global {
   interface Window {
     electron: {

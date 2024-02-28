@@ -8,13 +8,13 @@ function createWindow() {
     height: 600,
     titleBarStyle: 'hidden',
     webPreferences: {
-      preload: join(process.cwd(), 'bridge.js'),
+      preload: join(app.getAppPath(), 'bridge.cjs'),
     },
   })
 
   mainWindow.loadFile('dist/index.html')
 
-  // mainWindow.webContents.openDevTools()
+  // mainWindow.openDevTools()
 
   const messages = []
 

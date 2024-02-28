@@ -11,21 +11,30 @@
     "build": "rsbuild build",
     "watch": "rsbuild build --watch",
     "web": "rsbuild dev --open",
-    "test": "playwright test --config test/playwright.config.ts"
+    "test": "playwright test --config test/playwright.config.ts",
+    "distribute": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "package": "electron-builder --dir"
   },
-  "dependencies": {
-    "@playwright/test": "^1.41.1",
-    "@rsbuild/core": "^0.3.9",
-    "@rsbuild/plugin-react": "^0.3.9",
+  "devDependencies": {
+    "@playwright/test": "^1.42.0",
+    "@rsbuild/core": "^0.4.8",
+    "@rsbuild/plugin-react": "^0.4.8",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "electron": "^28.2.0",
-    "playwright": "^1.41.1",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.12.0",
+    "playwright": "^1.42.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.3.3"
   },
   "main": "main.js",
+  "build": {
+    "directories": {
+      "output": "executable"
+    }
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true
