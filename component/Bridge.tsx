@@ -1,6 +1,19 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Button } from './Button'
 
+// Implemented in bridge.cjs
+declare global {
+  interface Window {
+    electron: {
+      message: (text: string) => void
+      // biome-ignore lint/complexity/noBannedTypes: Generic function declaration.
+      register: (type: string, listener: Function) => void
+      isWindows: boolean
+      versions: { chrome: string; node: string; electron: string }
+    }
+  }
+}
+
 const inputStyles = {
   borderWidth: 2,
   borderColor: '#FF9E00',
@@ -20,7 +33,7 @@ export function Bridge() {
     window.electron.register('count', (value: number) => {
       setCount(value)
     })
-  }, [setCount])
+  }, [])
 
   return (
     <form style={{ display: 'flex', alignItems: 'center', gap: 20 }}>

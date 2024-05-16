@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 const buttonStyles = {
   background: '#FF9E00',
   color: 'white',

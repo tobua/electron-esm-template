@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test'
-import { initialize, close } from './initialize'
+import { expect, test } from '@playwright/test'
+import { close, initialize } from './initialize'
 
 let app: Awaited<ReturnType<typeof initialize>>
 

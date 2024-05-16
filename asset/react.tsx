@@ -1,10 +1,5 @@
 export const React = ({ width = 50, height = 50 }) => (
-  <svg
-    width={width}
-    height={height}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="-11.5 -10.23174 23 20.46348"
-  >
+  <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
     <title>React Logo</title>
     <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
     <g stroke="#61dafb" stroke-width="1" fill="none">

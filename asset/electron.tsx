@@ -1,10 +1,6 @@
 export const Electron = ({ width = 256, height = 256 }) => (
-  <svg
-    width={width}
-    height={height}
-    viewBox="0 0 256 256"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={width} height={height} viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <title>Electron</title>
     <g fill="none" fill-rule="evenodd">
       <circle fill="#2B2E3A" cx="128" cy="128" r="128" />
       <g fill="#9FEAF9" fill-rule="nonzero">

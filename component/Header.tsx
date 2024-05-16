@@ -6,6 +6,7 @@ export const Header = () => (
       textAlign: 'center',
       fontSize: 16,
       // @ts-ignore
+      // biome-ignore lint/style/useNamingConvention: React naming.
       WebkitAppRegion: 'drag',
       boxShadow: '2px 2px 10px -9px #000000',
     }}

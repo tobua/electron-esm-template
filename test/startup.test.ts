@@ -1,18 +1,18 @@
+import { spawn } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import childProcess from 'node:child_process'
+import { expect, test } from '@playwright/test'
 import electronPath from 'electron'
 import { _electron as electron } from 'playwright'
-import { test, expect } from '@playwright/test'
 
 // Regular way to start and electron application, not recommended.
 test('Successfully launches the app with a custom driver.', async () => {
-  const stdio = ['inherit', 'inherit', 'inherit', 'ipc']
-  const appProcess = childProcess.spawn(electronPath, ['./main.js'], {
-    stdio,
+  const appProcess = spawn(electronPath as unknown as string, ['./main.js'], {
+    stdio: ['inherit', 'inherit', 'inherit', 'ipc'],
     env: process.env,
-  }) as any
+  })
 
   appProcess.on('message', (message: string) => {
+    // biome-ignore lint/suspicious/noConsoleLog: Developer debug information.
     console.log('message:', message)
   })
 
@@ -30,11 +30,9 @@ test('Successfully launches the app with @playwright/test.', async () => {
   // See https://playwright.dev/docs/api/class-electronapplication for ElectronApplication documentation.
   const electronApplication = await electron.launch({ args: ['./main.js'] })
 
-  const { appPath, isPackaged } = await electronApplication.evaluate(
-    async ({ app }) => {
-      return { appPath: app.getAppPath(), isPackaged: app.isPackaged }
-    }
-  )
+  const { appPath, isPackaged } = await electronApplication.evaluate(({ app }) => {
+    return { appPath: app.getAppPath(), isPackaged: app.isPackaged }
+  })
 
   expect(appPath.endsWith('/electron-esm-template'))
   expect(isPackaged).toBe(false)

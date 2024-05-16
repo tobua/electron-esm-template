@@ -1,11 +1,6 @@
 export const TypeScript = ({ width = 512, height = 512 }) => (
-  <svg
-    fill="none"
-    height={height}
-    viewBox="0 0 512 512"
-    width={width}
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height={height} viewBox="0 0 512 512" width={width} xmlns="http://www.w3.org/2000/svg">
+    <title>TypeScript</title>
     <rect fill="#3178c6" height="512" rx="50" width="512" />
     <rect fill="#3178c6" height="512" rx="50" width="512" />
     <path

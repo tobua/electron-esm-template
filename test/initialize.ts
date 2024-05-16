@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 import { _electron } from 'playwright'
 
 export const wait = (time: number) =>
@@ -11,21 +11,25 @@ export const initialize = async () => {
     args: [join(process.cwd(), 'main.js')],
     env: {
       ...process.env,
+      // biome-ignore lint/style/useNamingConvention: Node.js default variable.
       NODE_ENV: 'test',
     },
   })
 
   // Redirect electron logs to playwright runner.
   const { stdout, stderr } = electronApplication.process()
-  if (!stdout || !stderr) {
+  if (!(stdout && stderr)) {
     process.exit(0)
   }
-  // eslint-disable-next-line no-console
+
   stdout.on('data', (data) => console.log(data.toString()))
   stderr.on('data', (error) => {
     const text = error.toString()
-    if (text.includes('handshake failed')) return
-    // eslint-disable-next-line no-console
+    if (text.includes('handshake failed')) {
+      return
+    }
+
+    // biome-ignore lint/suspicious/noConsoleLog: Used for dev logging in tests.
     console.log(text)
   })
 

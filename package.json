@@ -5,38 +5,37 @@
   "repository": "https://github.com/tobua/electron-esm-template",
   "license": "CC0-1.0",
   "author": "Matthias Giger",
-  "type": "module",
   "scripts": {
-    "start": "electron .",
     "build": "rsbuild build",
-    "watch": "rsbuild build --watch",
-    "web": "rsbuild dev --open",
-    "test": "playwright test --config test/playwright.config.ts",
+    "check": "biome check --apply .",
     "distribute": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
-    "package": "electron-builder --dir"
+    "package": "electron-builder --dir",
+    "start": "electron .",
+    "test": "playwright test --config test/playwright.config.ts",
+    "types": "tsc",
+    "watch": "rsbuild build --watch",
+    "web": "rsbuild dev --open"
   },
-  "devDependencies": {
-    "@playwright/test": "^1.42.0",
-    "@rsbuild/core": "^0.4.8",
-    "@rsbuild/plugin-react": "^0.4.8",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "electron": "^29.1.0",
-    "electron-builder": "^24.12.0",
-    "playwright": "^1.42.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
-  },
-  "main": "main.js",
   "build": {
     "directories": {
       "output": "executable"
     }
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  }
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "@playwright/test": "^1.44.0",
+    "@rsbuild/core": "^0.6.15",
+    "@rsbuild/plugin-react": "^0.6.15",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "electron": "^30.0.6",
+    "electron-builder": "^24.13.3",
+    "playwright": "^1.44.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  },
+  "type": "module",
+  "main": "main.js"
 }

@@ -1,5 +1,5 @@
-import { app, BrowserWindow } from 'electron'
 import { join } from 'node:path'
+import { BrowserWindow, app } from 'electron'
 import { ipcMain } from 'electron'
 
 function createWindow() {
@@ -18,7 +18,8 @@ function createWindow() {
 
   const messages = []
 
-  ipcMain.on('message', async (_, message) => {
+  ipcMain.on('message', (_, message) => {
+    // biome-ignore lint/suspicious/noConsoleLog: Useful for development, as it shows up in the initial console.
     console.log(`main.js: received message ${message}.`)
     messages.push(message)
     mainWindow.webContents.send('count', messages.length)
@@ -28,11 +29,15 @@ function createWindow() {
 app.whenReady().then(() => {
   createWindow()
 
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
   })
 })
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })

@@ -13,6 +13,7 @@ A minimal ESM (ES Modules) template for Electron with Playwright configured for 
 - Rsbuild
 - Playwright
 - Bun
+- Biome
 - Electron Bridge
 - GitHub Action Workflow
 - Packaging with `electron-builder`
@@ -21,6 +22,7 @@ A minimal ESM (ES Modules) template for Electron with Playwright configured for 
 git clone https://github.com/tobua/electron-esm-template
 cd electron-esm-template
 bun install
+bun check # Lint and format the code using Biome.
 bun run build # Build the application.
 bun start # Open the electron application.
 bun run test # Run Playwright test suite.

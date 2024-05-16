@@ -15,8 +15,7 @@ export default defineConfig({
         tag: 'meta',
         attrs: {
           'http-equiv': 'Content-Security-Policy',
-          content:
-            "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+          content: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
         },
       },
     ],
