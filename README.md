@@ -28,6 +28,7 @@ bun start # Open the electron application.
 bun run test # Run Playwright test suite.
 bun web # Open the application in the browser.
 bun package # Package the application into an executable.
+bun types # Check TypeScript types.
 ```
 
 ## Important Files and Folders

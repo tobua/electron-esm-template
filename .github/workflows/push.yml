@@ -15,6 +15,8 @@ jobs:
         run: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 bun install
       - name: 🧹 Lint & Format
         run: bun check
+      - name: 📜 Types
+        run: bun types
       - name: 🛠️ Build
         run: bun run build
       - name: 🚧 Install Chromium for Playwright

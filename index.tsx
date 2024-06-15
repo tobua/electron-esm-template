@@ -3,6 +3,18 @@ import { Bridge } from './component/Bridge'
 import { Header } from './component/Header'
 import { Stack } from './component/Stack'
 
+if (typeof window.electron === 'undefined') {
+  // @ts-ignore Polyfill to run UI in the browser.
+  window.electron = {
+    versions: {
+      chrome: 'web',
+      node: 'web',
+      electron: 'web',
+    },
+    register: () => false,
+  }
+}
+
 document.body.style.margin = '0'
 
 const { chrome, node, electron } = window.electron.versions
