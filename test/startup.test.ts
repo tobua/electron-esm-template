@@ -13,6 +13,7 @@ test('Successfully launches the app with a custom driver.', async () => {
 
   appProcess.on('message', (message: string) => {
     // biome-ignore lint/suspicious/noConsoleLog: Developer debug information.
+    // biome-ignore lint/suspicious/noConsole: Developer debug information.
     console.log('message:', message)
   })
 

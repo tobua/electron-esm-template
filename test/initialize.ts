@@ -30,6 +30,7 @@ export const initialize = async () => {
     }
 
     // biome-ignore lint/suspicious/noConsoleLog: Used for dev logging in tests.
+    // biome-ignore lint/suspicious/noConsole: Used for dev logging in tests.
     console.log(text)
   })
 

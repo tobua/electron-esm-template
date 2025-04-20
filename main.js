@@ -20,6 +20,7 @@ function createWindow() {
 
   ipcMain.on('message', (_, message) => {
     // biome-ignore lint/suspicious/noConsoleLog: Useful for development, as it shows up in the initial console.
+    // biome-ignore lint/suspicious/noConsole: Useful for development, as it shows up in the initial console.
     console.log(`main.js: received message ${message}.`)
     messages.push(message)
     mainWindow.webContents.send('count', messages.length)
