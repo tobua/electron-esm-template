@@ -6,7 +6,7 @@ import { _electron as electron } from 'playwright'
 
 // Regular way to start and electron application, not recommended.
 test('Successfully launches the app with a custom driver.', async () => {
-  const appProcess = spawn(electronPath as unknown as string, ['./main.js'], {
+  const appProcess = spawn(electronPath as unknown as string, ['--no-sandbox', './main.js'], {
     stdio: ['inherit', 'inherit', 'inherit', 'ipc'],
     env: process.env,
   })
@@ -29,7 +29,7 @@ test('Successfully launches the app with a custom driver.', async () => {
 // Start the application using the Playwright helper.
 test('Successfully launches the app with @playwright/test.', async () => {
   // See https://playwright.dev/docs/api/class-electronapplication for ElectronApplication documentation.
-  const electronApplication = await electron.launch({ args: ['./main.js'] })
+  const electronApplication = await electron.launch({ args: ['./main.js', '--no-sandbox'] })
 
   const { appPath, isPackaged } = await electronApplication.evaluate(({ app }) => {
     return { appPath: app.getAppPath(), isPackaged: app.isPackaged }
