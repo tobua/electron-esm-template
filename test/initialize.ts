@@ -8,7 +8,8 @@ export const wait = (time: number) =>
 
 export const initialize = async () => {
   const electronApplication = await _electron.launch({
-    args: [join(process.cwd(), 'main.js')],
+    // Sandbox needs to be disabled for CI to work with Linux (Ubuntu).
+    args: [join(process.cwd(), 'main.js'), '--no-sandbox'],
     env: {
       ...process.env,
       // biome-ignore lint/style/useNamingConvention: Node.js default variable.
